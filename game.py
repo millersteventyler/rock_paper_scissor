@@ -9,8 +9,13 @@ class Game:
 
     def choose_player_two(self):
         pass
-        # Prompt user to choose single player or multiplayer
-        # set self.player_two to a Human() or Ai() depending on input
+        single_or_multiplayer = input("Play against computer or friend? friend = 1, computer = 2")
+        if single_or_multiplayer == "1":
+            self.player_two = Human()
+            print("Playing against friend")
+        elif single_or_multiplayer == "2":
+            self.player_two = Ai()
+            print("Playing against computer")
 
     def run_game(self):
         pass
