@@ -18,9 +18,21 @@ class Game:
             print("Playing against computer")
 
     def run_game(self):
-        pass
         # intro
-        # Welcome / Rules
+        print("Welcome to Rock Paper Scissors Lizard!")
+        # Rules
+        print("Rules: The game is best of three.")
+        print("Select a gesture using keys ( 0, 1, 2, 3, 4 )")
+        print("Rock crushes Scissors")
+        print("Scissors cuts Paper")
+        print("Paper covers Rock")
+        print("Rock crushes Lizard")
+        print("Lizard poisons Spock")
+        print("Spock smashes Scissors")
+        print("Scissors decapitates Lizard")
+        print("Lizard eats Paper")
+        print("Paper disproves Spock")
+        print("Spock vaporizes Rock")
         # Select Single or Multiplayer
         # Make sure both player objects exist and input name is necessary
         # Game Rounds - Loop? What determines when the loop will stop?
