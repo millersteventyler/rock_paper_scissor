@@ -1,5 +1,6 @@
 from human import Human
 from ai import Ai
+from player import Player
 
 
 class Game:
@@ -12,10 +13,19 @@ class Game:
         single_or_multiplayer = input("Play against computer or friend? friend = 1, computer = 2")
         if single_or_multiplayer == "1":
             self.player_two = Human()
-            print("Playing against friend")
+            print("Player 1")
+            print(f'Player 1: {self.player_one.set_name()}')
+            print("Player 2")
+            print(f'Player 2: {self.player_two.set_name()}')
         elif single_or_multiplayer == "2":
             self.player_two = Ai()
-            print("Playing against computer")
+            print("Player 1")
+            print(f'Player 1: {self.player_one.set_name()}')
+            self.player_two.set_name()
+            print("Playing against Computer")
+        else:
+            print("Invalid input, try again!")
+            Game.choose_player_two(self)
 
     def run_game(self):
         # intro
@@ -34,11 +44,18 @@ class Game:
         print("Paper disproves Spock")
         print("Spock vaporizes Rock")
         # Select Single or Multiplayer
+        Game.choose_player_two(self)
         # Make sure both player objects exist and input name is necessary
         # Game Rounds - Loop? What determines when the loop will stop?
+
         # Player one chooses gesture
+
         # Player two chooses gesture
+
         # Compare gestures, assign point to winner, display winner of round
+
         # End game
+
         # Display overall winner of game
+
         # Play again?

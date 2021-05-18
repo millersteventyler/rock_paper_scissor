@@ -7,7 +7,7 @@ class Ai(Player):
         super(Ai, self).__init__('')
 
     def set_name(self):
-        self.name = "computer"
+        self.name = "Computer"
         return self.name
 
     def choosing_gesture(self):
