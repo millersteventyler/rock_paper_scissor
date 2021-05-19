@@ -28,7 +28,24 @@ class Game:
             print("Invalid input, try again!")
             Game.choose_player_two(self)
 
+    def play_again(self):
+        play_again = input('Game Over, play again? y = yes, n = no')
+        if play_again == 'y':
+            self.player_one.score = 0
+            self.player_two.score = 0
+            Game.run_game(self)
+        elif play_again == 'n':
+            print('Thanks for playing! Come back soon!')
+        else:
+            print('Input invalid, try again!')
+            Game.play_again(self)
+
     def conditions_of_win_or_lose(self):
+        print(f'{self.player_one.name} score:{self.player_one.score} {self.player_two.name} score:{self.player_two.score}')
+        if self.player_one.score == 3:
+            print(f'{self.player_one.name} is the CHAMPION!')
+        elif self.player_two.score == 3:
+            print(f'{self.player_two.name} is the CHAMPION!')
         while self.player_one.score < 3 and self.player_two.score < 3:
             print("Player one choose!")
             self.player_one.choosing_gesture()
@@ -113,14 +130,12 @@ class Game:
         Game.choose_player_two(self)
         # Make sure both player objects exist and input name is necessary
         # Game Rounds - Loop? What determines when the loop will stop?
-        Game.conditions_of_win_or_lose(self)
         # Player one chooses gesture
         # Player two chooses gesture
-
+        Game.conditions_of_win_or_lose(self)
         # Compare gestures, assign point to winner, display winner of round
-
         # End game
-
+        Game.play_again(self)
         # Display overall winner of game
 
         # Play again?
