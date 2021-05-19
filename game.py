@@ -111,9 +111,7 @@ class Game:
                 Game.conditions_of_win_or_lose(self)
 
     def run_game(self):
-        # intro
         print("Welcome to Rock Paper Scissors Lizard!")
-        # Rules
         print("Rules: The game is best of three.")
         print("Select a gesture using keys ( 0, 1, 2, 3, 4 )")
         print("Rock crushes Scissors")
@@ -126,19 +124,6 @@ class Game:
         print("Lizard eats Paper")
         print("Paper disproves Spock")
         print("Spock vaporizes Rock")
-        # Select Single or Multiplayer
         Game.choose_player_two(self)
-        # Make sure both player objects exist and input name is necessary
-        # Game Rounds - Loop? What determines when the loop will stop?
-        # Player one chooses gesture
-        # Player two chooses gesture
         Game.conditions_of_win_or_lose(self)
-        # Compare gestures, assign point to winner, display winner of round
-        # End game
         Game.play_again(self)
-        # Display overall winner of game
-
-        # Play again?
-
-
-
