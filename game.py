@@ -6,11 +6,10 @@ from player import Player
 class Game:
     def __init__(self):
         self.player_one = Human()
-        self.player_two = Human() or Ai()
+        self.player_two = None
         self.round = 0
 
     def choose_player_two(self):
-        pass
         single_or_multiplayer = input("Play against computer or friend? friend = 1, computer = 2")
         if single_or_multiplayer == "1":
             self.player_two = Human()
@@ -41,12 +40,8 @@ class Game:
             Game.play_again(self)
 
     def conditions_of_win_or_lose(self):
-        print(f'{self.player_one.name} score:{self.player_one.score} {self.player_two.name} score:{self.player_two.score}')
-        if self.player_one.score == 3:
-            print(f'{self.player_one.name} is the CHAMPION!')
-        elif self.player_two.score == 3:
-            print(f'{self.player_two.name} is the CHAMPION!')
         while self.player_one.score < 3 and self.player_two.score < 3:
+            print(f'{self.player_one.name} score:{self.player_one.score} {self.player_two.name} score:{self.player_two.score}')
             print("Player one choose!")
             self.player_one.choosing_gesture()
             print("Player two choose!")
@@ -54,12 +49,12 @@ class Game:
             if self.player_one.chosen_gesture == self.player_two.chosen_gesture:
                 print("Draw, no point rewarded.")
                 self.round += 1
-                Game.conditions_of_win_or_lose(self)
+
             elif self.player_one.chosen_gesture == Player(self).gestures[0] and self.player_two.chosen_gesture == Player(self).gestures[2]:
                 print(f'{self.player_one.name} won a point!')
                 self.player_one.score += 1
                 self.round += 1
-                Game.conditions_of_win_or_lose(self)
+
             elif self.player_one.chosen_gesture == Player(self).gestures[0] and self.player_two.chosen_gesture == Player(self).gestures[3]:
                 print(f'{self.player_one.name} won a point!')
                 self.player_one.score += 1
@@ -68,47 +63,47 @@ class Game:
                 print(f'{self.player_one.name} won a point!')
                 self.player_one.score += 1
                 self.round += 1
-                Game.conditions_of_win_or_lose(self)
+
             elif self.player_one.chosen_gesture == Player(self).gestures[1] and self.player_two.chosen_gesture == Player(self).gestures[4]:
                 print(f'{self.player_one.name} won a point!')
                 self.player_one.score += 1
                 self.round += 1
-                Game.conditions_of_win_or_lose(self)
+
             elif self.player_one.chosen_gesture == Player(self).gestures[2] and self.player_two.chosen_gesture == Player(self).gestures[1]:
                 print(f'{self.player_one.name} won a point!')
                 self.player_one.score += 1
                 self.round += 1
-                Game.conditions_of_win_or_lose(self)
+
             elif self.player_one.chosen_gesture == Player(self).gestures[2] and self.player_two.chosen_gesture == Player(self).gestures[3]:
                 print(f'{self.player_one.name} won a point!')
                 self.player_one.score += 1
                 self.round += 1
-                Game.conditions_of_win_or_lose(self)
+
             elif self.player_one.chosen_gesture == Player(self).gestures[3] and self.player_two.chosen_gesture == Player(self).gestures[4]:
                 print(f'{self.player_one.name} won a point!')
                 self.player_one.score += 1
                 self.round += 1
-                Game.conditions_of_win_or_lose(self)
+
             elif self.player_one.chosen_gesture == Player(self).gestures[3] and self.player_two.chosen_gesture == Player(self).gestures[1]:
                 print(f'{self.player_one.name} won a point!')
                 self.player_one.score += 1
                 self.round += 1
-                Game.conditions_of_win_or_lose(self)
             elif self.player_one.chosen_gesture == Player(self).gestures[4] and self.player_two.chosen_gesture == Player(self).gestures[2]:
                 print(f'{self.player_one.name} won a point!')
                 self.player_one.score += 1
                 self.round += 1
-                Game.conditions_of_win_or_lose(self)
             elif self.player_one.chosen_gesture == Player(self).gestures[4] and self.player_two.chosen_gesture == Player(self).gestures[0]:
                 print(f'{self.player_one.name} won a point!')
                 self.player_one.score += 1
                 self.round += 1
-                Game.conditions_of_win_or_lose(self)
             else:
                 print(f'{self.player_two.name} won a point')
                 self.player_two.score += 1
                 self.round += 1
-                Game.conditions_of_win_or_lose(self)
+        if self.player_one.score == 3:
+            print(f'{self.player_one.name} is the CHAMPION!')
+        elif self.player_two.score == 3:
+            print(f'{self.player_two.name} is the CHAMPION!')
 
     def run_game(self):
         print("Welcome to Rock Paper Scissors Lizard!")
